@@ -1,9 +1,18 @@
 #!/bin/bash
 
 # set variables
-hostname='localhost'
+# hostname='localhost'
 port=$1
 
+# Crude hack to get around dind jenkins 
+if [ $port == '8888' ];
+then
+   hostname='172.17.0.3'
+else
+   hostname='172.17.0.4'
+fi
+
+port='5000'
 # wait for the app to start
 sleep 5 
 
